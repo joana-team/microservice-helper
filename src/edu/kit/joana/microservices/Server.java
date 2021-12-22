@@ -10,6 +10,7 @@ public class Server {
      * @param apiServiceImpl service impl object
      * @param resourceClasses special resource classes used by the service impl object
      */
+    @EndpointMethod
     public static void run(String url, Object apiServiceImpl, Class<?>... resourceClasses) {
         JAXRSServerFactoryBean factory = new JAXRSServerFactoryBean();
         factory.setResourceClasses(resourceClasses);
@@ -27,5 +28,10 @@ public class Server {
         }
         System.out.println("Server exiting ...");
         System.exit(0);
+    }
+
+    @EndpointMethod
+    public static void run2(String url, Object apiServiceImpl, Class<?>... resourceClasses) {
+
     }
 }

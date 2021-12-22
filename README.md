@@ -9,6 +9,16 @@ Encapsulate the microservice server stuff with a well-defined interface:
 We can than make assumptions on the server initialisation in the 
 component based analysis :)
 
+Therefore the analysis can (kind of) ignore the real bytecode of the
+body as the exact semantics is (kind of) known and the bytecode of
+the method can be removed. This leads to a far simpler program
+analysis (hopefully).
+
+The `EndpointMethod` annotation marks methods that are known to just
+act as the interface of the underlying server and accept a service
+implementation, in every Object typed argument and runs it as a service.
+Their body can therefore by omitted.
+
 Usage
 -----
 Use it via maven
